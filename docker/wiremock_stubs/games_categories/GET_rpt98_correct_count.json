@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/slots/rtp98"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "games": {
+        "9831": {
+          "id": 9831,
+          "slug": "book-of-99-relax-gaming",
+          "is_mobile_supported": true,
+          "is_mobile_only": false,
+          "game_type": "slot"
+        },
+        "9737": {
+          "id": 9737,
+          "slug": "marching-legions-relax-gaming",
+          "is_mobile_supported": true,
+          "is_mobile_only": false,
+          "game_type": "slot"
+        }
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+FROM python:3.12.3-bookworm
+
+# Configure envs
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100 \
+    POETRY_HOME="/opt/poetry" \
+    AUTOMATION_PATH=/app
+
+ENV PATH="/root/.local/bin:${PATH}"
+RUN pip install pipx==1.4.3
+
+ENV POETRY_VERSION=1.8.2
+RUN pipx install poetry==${POETRY_VERSION}
+
+WORKDIR $AUTOMATION_PATH
+# Install project deps into project .venv
+COPY poetry.lock pyproject.toml $AUTOMATION_PATH/
+
+# Create /app/.venv for automation
+RUN poetry config virtualenvs.in-project true \
+        && poetry install --no-cache --verbose --no-root --no-interaction --no-ansi --compile
+
+RUN pip install playwright==1.44.0 \
+        && playwright install --with-deps
+
+
+ENV PATH="/app/.venv/bin:${PATH}"

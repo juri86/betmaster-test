@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  wiremock:
+    image: wiremock/wiremock:3.6.0-1
+    container_name: wiremock
+    entrypoint: ["/docker-entrypoint.sh", "--global-response-templating"]
+    volumes:
+      - ../docker/wiremock_stubs:/home/wiremock/mappings
+    ports:
+      - "8888:8888"
+    command: "--port 8888 --verbose"
+
+  playwright:
+    image: myimage:latest
+    build:
+      context: ../
+      dockerfile: docker/DockerFile
+    container_name: playwright
+    volumes:
+      - ../:/app/betmaster-test
+    command: tail -f /dev/null
