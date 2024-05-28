@@ -29,7 +29,6 @@
     ```
 * execute tests inside docker container
     ```bash
-  
     docker exec -it automation sh -c "cd ./betmaster-test; python -m pytest tests/prod -v"
     ```
 * stop docker env
