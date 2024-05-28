@@ -3,10 +3,10 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    HEADLESS: bool = False
-    BLINK_ELEMENT: bool = True
+    HEADLESS: bool = True
+    BLINK_ELEMENT: bool = False
     ELEMENT_TIMEOUT: int = 10000
-    SLOW_MO: int = 100
+    SLOW_MO: int = 0
 
 
 @lru_cache()
