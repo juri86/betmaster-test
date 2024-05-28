@@ -22,15 +22,16 @@
     poetry install
     ```
 
-### Start docker env
-
+### Local Run
+#### Start docker env
 ```bash
 docker compose -f ./docker/docker-compose.yml up -d
-
 ```
-
-### Stop docker env
-
+```bash
+# execute tests inside docker container
+docker exec -it automation python -m pytest betmaster-test/tests/prod -v
+```
+#### Stop docker env
 ```bash
 docker compose -f ./docker/docker-compose.yml down
 ```

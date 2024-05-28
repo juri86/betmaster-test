@@ -11,12 +11,12 @@ services:
       - "8888:8888"
     command: "--port 8888 --verbose"
 
-  playwright:
-    image: myimage:latest
+  automation:
+    image: automation
     build:
       context: ../
       dockerfile: docker/DockerFile
-    container_name: playwright
+    container_name: automation
     volumes:
       - ../:/app/betmaster-test
     command: tail -f /dev/null

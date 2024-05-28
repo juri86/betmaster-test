@@ -78,3 +78,10 @@ class PageObject:
         except PlaywrightTimeoutError:
             msg = f"Element '{self.get_locator_name(info=True)}' can't use 'click' action"
             raise Exception(msg)
+
+    async def elements_count(self):
+        """
+        returns the number of elements matching the locator.
+        :return: int
+        """
+        return await self.locator.count()
