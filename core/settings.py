@@ -16,4 +16,4 @@ def settings():
 
 class Env:
     production_host = "https://betmaster.ee/en/casino/slots"
-    wiremock_host = "http://localhost:8888"     # wiremock
+    wiremock_host = "http://wiremock:8888"     # wiremock

@@ -23,16 +23,17 @@
     ```
 
 ### Local Run
-#### Start docker env
-```bash
-docker compose -f ./docker/docker-compose.yml up -d
-```
-```bash
-# execute tests inside docker container
-docker exec -it automation python -m pytest betmaster-test/tests/prod -v
-```
-#### Stop docker env
-```bash
-docker compose -f ./docker/docker-compose.yml down
-```
+* start docker env
+    ```bash
+    docker compose -f ./docker/docker-compose.yml up -d
+    ```
+* execute tests inside docker container
+    ```bash
+  
+    docker exec -it automation sh -c "cd ./betmaster-test; python -m pytest tests/prod -v"
+    ```
+* stop docker env
+    ```bash
+    docker compose -f ./docker/docker-compose.yml down
+    ```
   
