@@ -79,11 +79,5 @@ class PageObject:
             msg = f"Element '{self.get_locator_name(info=True)}' can't use 'click' action"
             raise Exception(msg)
 
-    async def elements_count(self, wait_before: int = 0):
-        """
-        returns the number of elements matching the locator.
-        :param wait_before: int, default 0, will wait ms before count
-        :return: int
-        """
-        await self.page.wait_for_timeout(wait_before)
-        return await self.locator.count()
+    async def text(self):
+        return await self.locator.text_content(timeout=settings().ELEMENT_TIMEOUT)

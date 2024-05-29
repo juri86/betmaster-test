@@ -12,7 +12,8 @@ class TestBetmasterCategories(BaseTest):
         self.description("Open category RTP98+ and get game images in the category")
         slots_page = SlotsPage(page)
         await slots_page.categories.rtp98plus.click()
-        frontend_games_count = await slots_page.game_img.elements_count(wait_before=500)
+        frontend_rtp98_val = await slots_page.categories.rtp98count.text()
+        frontend_games_count = int(frontend_rtp98_val)
 
         self.description("MOCK: Send request to backend to understand count of games in the category RTP98+")
         _, resp_body = RestApi().get_games_in_category(category)
