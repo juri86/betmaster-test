@@ -80,4 +80,8 @@ class PageObject:
             raise Exception(msg)
 
     async def text(self):
+        """
+        get text content inside the tag
+        :return: str
+        """
         return await self.locator.text_content(timeout=settings().ELEMENT_TIMEOUT)

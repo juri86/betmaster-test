@@ -2,7 +2,7 @@ import pytest
 
 from core.testcase import BaseTest
 from lib.page_objects.slots.elements import SlotsPage
-from lib.api import RestApi
+from lib.rest_api import RestApi
 
 
 class TestBetmasterCategories(BaseTest):
